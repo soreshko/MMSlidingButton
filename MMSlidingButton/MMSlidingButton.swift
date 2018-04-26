@@ -9,82 +9,82 @@
 import Foundation
 import UIKit
 
-protocol SlideButtonDelegate{
+public protocol SlideButtonDelegate{
     func buttonStatus(status:String, sender:MMSlidingButton)
 }
 
 @IBDesignable public class MMSlidingButton: UIView {
     
-    var delegate: SlideButtonDelegate?
+    public var delegate: SlideButtonDelegate?
     
-    @IBInspectable var dragPointWidth: CGFloat = 70 {
+    @IBInspectable public var dragPointWidth: CGFloat = 70 {
         didSet{
             setStyle()
         }
     }
     
-    @IBInspectable var dragPointColor: UIColor = UIColor.darkGray {
+    @IBInspectable public var dragPointColor: UIColor = UIColor.darkGray {
         didSet{
             setStyle()
         }
     }
     
-    @IBInspectable var buttonColor: UIColor = UIColor.gray {
+    @IBInspectable public var buttonColor: UIColor = UIColor.gray {
         didSet{
             setStyle()
         }
     }
     
-    @IBInspectable var buttonText: String = "UNLOCK" {
-        didSet{
-            setStyle()
-        }
-    }
-  
-  	@IBInspectable var dragButtonText: String = "UNLOCKED" {
-    	didSet{
-      	setStyle()
-    	}
-  	}
-    
-    @IBInspectable var imageName: UIImage = UIImage() {
-        didSet{
-            setStyle()
-        }
-    }
-    
-    @IBInspectable var buttonTextColor: UIColor = UIColor.white {
-        didSet{
-            setStyle()
-        }
-    }
-    
-    @IBInspectable var dragPointTextColor: UIColor = UIColor.white {
-        didSet{
-            setStyle()
-        }
-    }
-    
-    @IBInspectable var buttonUnlockedTextColor: UIColor = UIColor.white {
-        didSet{
-            setStyle()
-        }
-    }
-    
-    @IBInspectable var buttonCornerRadius: CGFloat = 30 {
+    @IBInspectable public var buttonText: String = "UNLOCK" {
         didSet{
             setStyle()
         }
     }
   
-  	@IBInspectable var dragUnlockedPointColor: UIColor = UIColor.white {
+  	@IBInspectable public var dragButtonText: String = "UNLOCKED" {
     	didSet{
       	setStyle()
     	}
   	}
     
-    @IBInspectable var buttonUnlockedText: String   = "UNLOCKED"
-    @IBInspectable var buttonUnlockedColor: UIColor = UIColor.black
+    @IBInspectable public var imageName: UIImage = UIImage() {
+        didSet{
+            setStyle()
+        }
+    }
+    
+    @IBInspectable public var buttonTextColor: UIColor = UIColor.white {
+        didSet{
+            setStyle()
+        }
+    }
+    
+    @IBInspectable public var dragPointTextColor: UIColor = UIColor.white {
+        didSet{
+            setStyle()
+        }
+    }
+    
+    @IBInspectable public var buttonUnlockedTextColor: UIColor = UIColor.white {
+        didSet{
+            setStyle()
+        }
+    }
+    
+    @IBInspectable public var buttonCornerRadius: CGFloat = 30 {
+        didSet{
+            setStyle()
+        }
+    }
+  
+  	@IBInspectable public var dragUnlockedPointColor: UIColor = UIColor.white {
+    	didSet{
+      	setStyle()
+    	}
+  	}
+    
+    @IBInspectable public var buttonUnlockedText: String   = "UNLOCKED"
+    @IBInspectable public var buttonUnlockedColor: UIColor = UIColor.black
     var buttonFont                                  = UIFont.boldSystemFont(ofSize: 17)
     
     
