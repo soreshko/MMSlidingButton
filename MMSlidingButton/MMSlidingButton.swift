@@ -95,16 +95,16 @@ protocol SlideButtonDelegate{
     var unlocked             = false
     var layoutSet            = false
     
-    override init (frame : CGRect) {
+    public override init (frame : CGRect) {
         super.init(frame : frame)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    public required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         
     }
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         if !layoutSet{
             self.setUpButton()
             self.layoutSet = true
@@ -216,7 +216,7 @@ protocol SlideButtonDelegate{
     }
     
     //reset button animation (RESET)
-    func reset(){
+    public func reset(){
         UIView.transition(with: self, duration: 0.2, options: .curveEaseOut, animations: {
             self.dragPoint.frame = CGRect(x: self.dragPointWidth - self.frame.size.width, y: 0, width: self.dragPoint.frame.size.width, height: self.dragPoint.frame.size.height)
         }) { (Status) in
