@@ -40,6 +40,12 @@ protocol SlideButtonDelegate{
             setStyle()
         }
     }
+  
+  	@IBInspectable var dragButtonText: String = "UNLOCKED" {
+    	didSet{
+      	setStyle()
+    	}
+  	}
     
     @IBInspectable var imageName: UIImage = UIImage() {
         didSet{
@@ -70,6 +76,12 @@ protocol SlideButtonDelegate{
             setStyle()
         }
     }
+  
+  	@IBInspectable var dragUnlockedPointColor: UIColor = UIColor.white {
+    	didSet{
+      	setStyle()
+    	}
+  	}
     
     @IBInspectable var buttonUnlockedText: String   = "UNLOCKED"
     @IBInspectable var buttonUnlockedColor: UIColor = UIColor.black
@@ -101,7 +113,7 @@ protocol SlideButtonDelegate{
     
     func setStyle(){
         self.buttonLabel.text               = self.buttonText
-        self.dragPointButtonLabel.text      = self.buttonText
+        self.dragPointButtonLabel.text      = self.dragButtonText
         self.dragPoint.frame.size.width     = self.dragPointWidth
         self.dragPoint.backgroundColor      = self.dragPointColor
         self.backgroundColor                = self.buttonColor
@@ -134,7 +146,7 @@ protocol SlideButtonDelegate{
             
             self.dragPointButtonLabel               = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height))
             self.dragPointButtonLabel.textAlignment = .center
-            self.dragPointButtonLabel.text          = buttonText
+            self.dragPointButtonLabel.text          = dragButtonText
             self.dragPointButtonLabel.textColor     = UIColor.white
             self.dragPointButtonLabel.font          = self.buttonFont
             self.dragPointButtonLabel.textColor     = self.dragPointTextColor
@@ -157,7 +169,7 @@ protocol SlideButtonDelegate{
         self.dragPoint.addGestureRecognizer(panGestureRecognizer)
     }
     
-    func panDetected(sender: UIPanGestureRecognizer){
+  @objc func panDetected(sender: UIPanGestureRecognizer){
         var translatedPoint = sender.translation(in: self)
         translatedPoint     = CGPoint(x: translatedPoint.x, y: self.frame.size.height / 2)
         sender.view?.frame.origin.x = (dragPointWidth - self.frame.size.width) + translatedPoint.x
@@ -196,7 +208,7 @@ protocol SlideButtonDelegate{
             if Status{
                 self.dragPointButtonLabel.text      = self.buttonUnlockedText
                 self.imageView.isHidden               = true
-                self.dragPoint.backgroundColor      = self.buttonUnlockedColor
+                self.dragPoint.backgroundColor      = self.dragUnlockedPointColor
                 self.dragPointButtonLabel.textColor = self.buttonUnlockedTextColor
                 self.delegate?.buttonStatus(status: "Unlocked", sender: self)
             }
