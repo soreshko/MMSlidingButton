@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage     = 'https://github.com/maail/MMSlidingButton'
   s.license      = 'MIT'
   s.ios.deployment_target = '10.0'
-  s.source_files  = 'Sources/*.swift'
+  s.source_files  = 'MMSlidingButton/*.swift'
   s.source       = { :git => 'https://github.com/maail/MMSlidingButton' }
   s.dependency 'pop'
 end
