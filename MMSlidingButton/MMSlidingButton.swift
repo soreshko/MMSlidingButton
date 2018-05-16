@@ -85,7 +85,7 @@ public protocol SlideButtonDelegate{
     
     @IBInspectable public var buttonUnlockedText: String   = "UNLOCKED"
     @IBInspectable public var buttonUnlockedColor: UIColor = UIColor.black
-    var buttonFont                                  = UIFont.boldSystemFont(ofSize: 17)
+    public var buttonFont                                  = UIFont.boldSystemFont(ofSize: 17)
     
     
     var dragPoint            = UIView()
