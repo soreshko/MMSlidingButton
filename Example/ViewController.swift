@@ -9,6 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController, SlideButtonDelegate {
+    func buttonStatus(status: String, sender: MMSlidingButton) {
+      print(status)
+    }
+  
     
     @IBOutlet weak var button: MMSlidingButton!
 

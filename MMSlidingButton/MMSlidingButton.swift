@@ -152,8 +152,14 @@ public protocol SlideButtonDelegate{
             self.dragPointButtonLabel.textColor     = self.dragPointTextColor
             self.dragPoint.addSubview(self.dragPointButtonLabel)
         }
-        self.bringSubview(toFront: self.dragPoint)
-        
+
+        #if swift(>=4.2)
+          self.bringSubviewToFront(self.dragPoint)
+        #else
+          self.bringSubview(toFront: self.dragPoint)
+        #endif
+
+      
         if self.imageName != UIImage(){
             self.imageView = UIImageView(frame: CGRect(x: self.frame.size.width - dragPointWidth, y: 0, width: self.dragPointWidth, height: self.frame.size.height))
             self.imageView.contentMode = .center
@@ -185,12 +191,23 @@ public protocol SlideButtonDelegate{
             }
             
             let animationDuration:Double = abs(Double(velocityX) * 0.0002) + 0.2
-            UIView.transition(with: self, duration: animationDuration, options: UIViewAnimationOptions.curveEaseOut, animations: {
-                }, completion: { (Status) in
-                    if Status{
-                        self.animationFinished()
-                    }
+          
+          #if swift(>=4.2)
+          UIView.transition(with: self, duration: animationDuration, options: UIView.AnimationOptions.curveEaseOut, animations: {
+            }, completion: { (Status) in
+              if Status{
+                self.animationFinished()
+              }
             })
+          #else
+            UIView.transition(with: self, duration: animationDuration, options: UIViewAnimationOptions.curveEaseOut, animations: {
+              }, completion: { (Status) in
+                if Status{
+                  self.animationFinished()
+                }
+            })
+          #endif
+
         }
     }
     
